@@ -1,0 +1,110 @@
+.outer-container-club{
+
+    margin-top: 40px;
+    width: 800px; /* Set the width of the outer container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 40px; /* Add padding for spacing */
+    background-color: rgb(226, 225, 225);
+
+    h1 {
+        margin-top: 0px;
+        font-family: Arial black;
+        font-size: 40px;
+    }
+
+
+    .inner-container-club{
+        background-color: rgb(243, 241, 241);
+        padding: 40px;
+        width: 700px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inputs-club{
+            display: flex;
+            flex-direction: column;
+            gap: 20px; // Add gap between input elements
+
+            input[type="text"],
+            textarea {
+                border-radius: 0px;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                padding: 8px;
+                border: 1px solid #b8b8b8;
+                resize: none;
+            }
+            
+            input[type="number"],
+            textarea {
+                border-radius: 0px;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                padding: 8px;
+                border: 1px solid #b8b8b8;
+                resize: none;
+            }
+
+
+            select {
+                width: 100%;
+                margin-bottom: 16px;
+                background: white;
+                padding: 8px;
+                border: 1px solid #9d9a9a;
+                width: 300px;
+            }
+           
+            .choose-image {
+                display: none;
+            }
+        
+            .custom-button {
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #778799;
+                color: #fff;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                cursor: pointer;
+                border-radius: 2px;
+                transition: background-color 0.3s ease;
+                width:230px;
+                height:25px;
+                font-size:16px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                
+          
+            }
+        
+            .custom-button:hover {
+                background-color: rgb(103, 155, 194);
+            }
+
+            .buttons-club button {
+                width:270px;
+                height:45px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size:16px;
+                border-radius:2px;
+                background-color: rgb(103, 155, 194);
+                color: white;
+                border: none;
+                cursor: pointer;
+
+            }
+
+            .buttons-club button:hover {
+                background-color: #778799;; /* Change it to whatever color you prefer */
+            }
+        }
+
+    }
+}

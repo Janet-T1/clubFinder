@@ -1,0 +1,100 @@
+.leftbar {
+    flex: 2;
+    position: sticky;
+    top: 50px;
+
+    height: calc(100vh - 50px);
+    overflow: scroll;
+
+    
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .container {
+        padding: 20px;
+        background-color:rgb(255, 255, 255);;
+
+        hr {
+            margin: 20px 0px;
+            border: none;
+            height: 1px;
+            background-color: rgb(58, 58, 58);
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .user {
+                display: flex;
+                align-items: center;
+                gap: 25px;
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                  
+                }
+
+                .userName {
+                
+                    font-size: 15px;
+                    font-family: Verdana, Geneva, Tahoma, sans-serif;
+                    font-weight: bold;
+                    a, a:hover, a:focus, a:active {
+                        color: inherit;
+                        text-decoration: none;
+                    }
+
+                    .link-name{
+                        color:black; 
+                    }
+                }
+            }
+
+            .item {
+
+                text-decoration: none; /* Remove underline */
+                color: inherit; /* Inherit text color */
+            
+                display: flex;
+                align-items: center;
+                gap: 30px;
+                cursor: pointer; /* Add cursor pointer */
+                padding: 6px; /* Add padding to create button-like appearance */
+                transition: background-color 0.3s ease; /* Add transition effect */
+
+                border-color:black;
+                border-bottom: 2px;
+                span {
+                    font-size: 15px;
+                    font-family: Verdana, Geneva, Tahoma, sans-serif;
+                    color: rgb(0, 0, 0);
+               
+                }
+
+                svg {
+                    font-size: 24px;
+                    color: black;
+                }
+            }
+
+            .item:hover {
+                background-color: #414141;
+                border-radius: 5px;
+                span{
+                    color:white
+                }
+
+                svg {
+                    color: rgb(255, 255, 255);
+                }
+            }
+        }
+    }
+}

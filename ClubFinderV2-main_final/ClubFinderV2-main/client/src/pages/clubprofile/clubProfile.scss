@@ -1,0 +1,184 @@
+// Import your style dependencies here if needed
+
+.clubprofile {
+    display: flex;
+    width: 100%;
+
+    .inner-container-clubProfile {
+        width: 95%;
+        box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+        margin-top: 40px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .images {
+            width: 100%;
+            height: 300px;
+            position: relative;
+
+            .cover {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+            }
+
+            .text-container {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-weight: bold;
+
+                .edit-button{
+                    margin-right:90px;
+                }
+                .c1 {
+                    font-size: 50px;
+                    font-family: Arial black;
+                    margin-bottom: 5px;
+                }
+
+                .c2 {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                }
+
+                .c3 {
+                    font-size: 12px;
+                    margin-bottom: 20px;
+                }
+
+                position: absolute;
+                bottom: 5px;
+                left: 20px;
+                color: rgb(255, 255, 255);
+                z-index: 1;
+            }
+
+
+            
+        }
+
+        .components {
+           
+            
+
+            .edit{ 
+                width:100%;
+                .edit-button{
+                    margin-top:15px;
+                    margin-left: 860px;
+                    background-color:#963737;
+                    color:white;
+                    font-family:Verdana, Geneva, Tahoma, sans-serif; 
+                    width:100px;
+                    height:35px;
+                    border-radius:2px;
+                    border:none;
+                    cursor:pointer;
+                    transition:background-color 0.3s ease;
+
+                    &:hover{
+                        background-color: #993939; /* Change color on hover */
+
+                    }
+                }
+            }
+            
+
+            .outer-buttons {
+                .buttons-clubProfile {
+                    border-bottom: 8px solid #2e7154;
+                    overflow: hidden;
+                    margin: 40px auto;
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                    gap: 10px;
+                    width: 700px;
+                    justify-content: space-between;
+                    max-width: 700px;
+                    flex: 1;
+
+                    button {
+                        width: 220px;
+                        padding: 10px 20px;
+                        font-size: 16px;
+                        background-color: #424242;
+                        color: white;
+                        border: none;
+                        border-radius: 8px 8px 0 0;
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+
+                        &:hover {
+                            background-color: rgb(113, 113, 113);
+                        }
+
+                        &.clicked {
+                            background-color: rgb(19, 83, 16);
+                        }
+                    }
+                }
+            }
+
+            .header {
+                margin-left: auto;
+                margin-right: auto;
+                background-color: #3c3c3c;
+              
+
+
+                h1{
+                    padding:5px;
+                    color: rgb(241, 241, 241);
+                    text-align: center;
+                    font-family:Verdana, Geneva, Tahoma, sans-serif;
+                    font-weight: bold;
+                    font-size:40px;  
+                }
+               
+            }
+
+            .join-club {
+                border-top: 1px solid #000000;
+                padding-top: 40px;
+                margin-top: 80px;
+                display: flex;
+                justify-content: center;
+
+                button {
+                    font-family: Verdana, Geneva, Tahoma, sans-serif;
+                    font-weight: bold;
+                    width: 300px;
+                    height: 50px;
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    color: white;
+                    border: none;
+                    border-radius: 2px;
+                    cursor: pointer;
+                    background-color: #424242;
+                    transition: background-color 0.3s ease;
+
+                    &:hover {
+                        background-color: rgb(113, 113, 113);
+                    }
+
+                    &.clicked {
+                        background-color: #195d18;
+                    }
+                }
+            }
+
+            margin-bottom: 40px;
+        }
+    }
+}

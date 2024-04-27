@@ -1,0 +1,40 @@
+
+.editUserForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px; 
+    padding: 20px;
+    border: 1px solid themed('border');
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+
+        .MuiTextField-root {
+            width: 100%;
+            margin-bottom: 20px;
+            border-color: themed('border');
+        }
+
+        .MuiTextField-root:first-of-type {
+            margin-top: 20px; 
+        }
+    
+        .MuiTypography-root {
+            text-align: left; 
+            width: 100%;
+            margin-bottom: 10px; 
+        }
+              
+        input[type="file"] {
+            width: 75%; 
+            margin-bottom: 20px;
+            text-align: left;
+          }
+        
+          
+          input[type="file"]::-webkit-file-upload-button {
+            text-align: left;
+        }
+    }
+    
+

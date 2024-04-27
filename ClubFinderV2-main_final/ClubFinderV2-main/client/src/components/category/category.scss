@@ -1,0 +1,60 @@
+.category {
+    
+    margin: 30px;
+    width: calc(50.0% - 60px); /* Adjust width for three items in a row */
+    height: 250px;
+    position: relative;
+    float: left; /* Ensure items float left */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+    /* Ensure positioning context for absolute positioning */
+
+    .image-button {
+       
+        cursor: pointer;
+        background-color: rgb(255, 255, 255);
+        border: none;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Ensure text stays within button bounds */
+
+        img {
+            border-radius: 10px;
+            width: 100%; /* Take full width of parent container */
+            height: 100%; /* Take full height of parent container */
+            object-fit: cover;
+            /* Cover the entire container */
+        }
+
+        .category-name {
+            
+            font-family: 'Arial Black', sans-serif;
+            /* Use a thicker font */
+            font-size: 35px;
+            display: flex;
+            justify-content: center;
+            /* Center text horizontally */
+            align-items: center;
+            /* Center text vertically */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            color: black;
+            /* Add text color */
+            transition: background-color 0.3s, color 0.3s;
+            /* Add transition effect for background and text color */
+            opacity: 1;
+            /* Set default opacity */
+        }
+    }
+
+    .image-button:hover .category-name {
+        color: white;
+    }
+}

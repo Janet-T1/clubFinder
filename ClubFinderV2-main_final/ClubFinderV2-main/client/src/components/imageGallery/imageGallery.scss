@@ -1,0 +1,26 @@
+.image-gallery-container {
+    box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    border-radius: 5px;
+    margin-top: 10px;
+    height: 400px; /* Set desired height */
+    width: 700px;
+    overflow-y: auto; /* Add scrollbar when content exceeds container height */
+    
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+    padding:28px;
+
+    .image-gallery{
+       top:20px;
+    }
+    
+}
+
+
+
+
