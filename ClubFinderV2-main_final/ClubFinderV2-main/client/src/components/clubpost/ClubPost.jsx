@@ -53,7 +53,7 @@ const ClubPost = ({post}) => {
                 <div className="user">
                     <div className="userInfo">
                         <div className="details">
-                            <img src={"http://localhost:3000/upload/" + post.user_profile_image} alt=""/>
+                            <img src={`${process.env.REACT_APP_API_URL}/upload/" + post.user_profile_image} alt=`/>
 
                             <div className="header">
                                 <Link to={`/profile/${post.username}`} style={{textdecoration:"none", color:"inherit"}}> 

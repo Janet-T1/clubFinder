@@ -8,7 +8,7 @@ const Categories = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await axios.get('http://localhost:8800/api/categories'); // Adjust the URL based on your server
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/categories`); // Adjust the URL based on your server
                 setCategories(response.data);
             } catch (error) {
                 console.error('Failed to fetch categories:', error);

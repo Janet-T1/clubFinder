@@ -14,7 +14,7 @@ const Club = ({ club }) => {
 
                 <div className="image">
                     <div className="userInfo">
-                        <img src={`http://localhost:3000/upload/${club.image}`} alt="" />
+                        <img src={`${process.env.REACT_APP_API_URL}/upload/${club.image}`} alt="" />
                         <div className="details">
 
                         </div>
