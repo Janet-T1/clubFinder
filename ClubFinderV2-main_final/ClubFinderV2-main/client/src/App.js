@@ -17,115 +17,55 @@ import ClubCreator from "./pages/clubcreator/ClubCreator";
 
 import CategoryClubs from "./pages/categoryClubs/CategoryClubs";
 
-import { useContext } from "react";
-import { AuthContext } from "./context/authContext";
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
   Outlet,
-  Navigate,
 } from "react-router-dom";
 
-
 function App() {
-  const {currentUser} = useContext(AuthContext);
   const queryClient = new QueryClient();
+
   const Layout = () => {
-    return(
-      <QueryClientProvider client ={queryClient}>
-      <div>
-        <Navbar/>
-        <div style={{ display:"flex" }}>
-          <Leftbar/>
-          <div style={{ flex:10 }}>
-            <Outlet/>
+    return (
+      <QueryClientProvider client={queryClient}>
+        <div>
+          <Navbar />
+          <div style={{ display: "flex" }}>
+            <Leftbar />
+            <div style={{ flex: 10 }}>
+              <Outlet />
+            </div>
           </div>
         </div>
-      </div>
       </QueryClientProvider>
     );
   };
-  
-  const ProtectedRoute = ({children}) => {
-    if (!currentUser) {
-      return <Navigate to="/login"/>
-    }
-    return children;
-  }
 
   const router = createBrowserRouter([
     {
-      path:"/",
-      element: (
-      <ProtectedRoute>
-        <Layout />
-      </ProtectedRoute>
-      ),
+      path: "/",
+      element: <Layout />, // No ProtectedRoute anymore
       children: [
-        {
-          path:"/",
-          element:<Home/>
-        },
-        {
-          path:"/profile/:username",
-          element:<Profile/>
-        },
-        {
-          path:"/clubProfile/:clubid",
-          element:<ClubProfile/>
-        },
-        {
-          path: "/myClubs",
-          element: <MyClubs/>
-        },
-        {
-          path: "/myEvents",
-          element: <MyEvents/>
-        },
-        {
-          path: "/explore", 
-          element: <Explore/>,
-        },
-        {
-          path:"/createEvent",
-          element:<EventCreator/>
-        }, 
-        {
-          path:"/createPost",
-          element:<PostCreator/>
-        }, 
-        {
-          path:"/createClub",
-          element:<ClubCreator/>
-        },
-        {
-          path:"/categoryClubs",
-          element: <CategoryClubs/>
-        },
-        {
-          path:"/clubProfile",
-          element:<ClubProfile/>
-        }, 
-        {
-          path:"/profile",
-          element:<Profile/>
-
-        }
-      ]
+        { path: "/", element: <Home /> },
+        { path: "/profile/:username", element: <Profile /> },
+        { path: "/clubProfile/:clubid", element: <ClubProfile /> },
+        { path: "/myClubs", element: <MyClubs /> },
+        { path: "/myEvents", element: <MyEvents /> },
+        { path: "/explore", element: <Explore /> },
+        { path: "/createEvent", element: <EventCreator /> },
+        { path: "/createPost", element: <PostCreator /> },
+        { path: "/createClub", element: <ClubCreator /> },
+        { path: "/categoryClubs", element: <CategoryClubs /> },
+        { path: "/clubProfile", element: <ClubProfile /> },
+        { path: "/profile", element: <Profile /> },
+      ],
     },
-    {
-      path: "/login",
-      element: <Login/>,
-    },
-    {
-      path: "/register",
-      element: <Register/>,
-    }, 
-   
-  ])
+    { path: "/login", element: <Login /> },
+    { path: "/register", element: <Register /> },
+  ]);
 
   return (
     <div>
