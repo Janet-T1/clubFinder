@@ -18,16 +18,24 @@ import imageRoutes from "./routes/images.js";
 import memberRoutes from "./routes/members.js";
 
 // CORS configuration
+const allowedOrigins = ["https://club-finder-five.vercel.app", "https://club-finder-li8orbgg6-janet-t1s-projects.vercel.app"];
+
 app.use(
   cors({
-    origin: "https://club-finder-five.vercel.app", // Your frontend URL
-    credentials: true, // Required for cookies
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true, // Allow cookies and other credentials
   })
 );
 
 // Middleware for setting headers manually
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://club-finder-five.vercel.app");
+  res.header("Access-Control-Allow-Origin", req.headers.origin || "*");
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   res.header(
@@ -45,8 +53,8 @@ app.use(cookieParser());
 app.get("/set-cookie", (req, res) => {
   res.cookie("exampleCookie", "value", {
     httpOnly: true,
-    secure: true, // Required for SameSite: None
-    sameSite: "None", // Allows cross-origin requests
+    secure: true,
+    sameSite: "None",
   });
   res.send("Cookie set!");
 });
@@ -75,7 +83,7 @@ app.use("/api/posts", postRoutes);
 app.use("/api/comments", commentRoutes);
 app.use("/api/likes", likeRoutes);
 app.use("/api/clubs", clubRoutes);
-app.use("/api/categories", categoryRoutes);
+app.use("/api/categories", categoryRoutes); // This ensures /categories is handled
 app.use("/api/events", eventsRoutes);
 app.use("/api/clubposts", clubPosts);
 app.use("/api/images", imageRoutes);
@@ -83,7 +91,7 @@ app.use("/api/members", memberRoutes);
 
 // Handle preflight requests (OPTIONS method)
 app.options("*", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "https://club-finder-five.vercel.app");
+  res.header("Access-Control-Allow-Origin", req.headers.origin || "*");
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   res.header(
