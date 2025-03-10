@@ -24,9 +24,8 @@ const Login = () => {
         try {
             await login(inputs);
             navigate("/Explore");
-
         } catch (err) {
-            setErr(err.response.data);
+            setErr(err.response?.data?.message || "Login failed");
         }
     };
 
