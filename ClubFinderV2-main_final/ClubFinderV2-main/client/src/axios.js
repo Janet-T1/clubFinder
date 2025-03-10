@@ -1,6 +1,6 @@
 import axios from "axios"
 
 export const makeRequest = axios.create({
-    baseURL:"http://localhost:8800/api/",
+    baseURL:"https://clubfinderapi-62mof7e34-janet-t1s-projects.vercel.app",
     withCredentials: true, 
 });
