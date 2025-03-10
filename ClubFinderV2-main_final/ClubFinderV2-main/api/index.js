@@ -24,7 +24,9 @@ app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Credentials", true);
     next();
 })
-app.use(cors({origin: "http://localhost:3000"}));
+app.use(cors({origin: "https://club-finder-five.vercel.app", 
+    credentials:true
+}));
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -58,3 +60,6 @@ app.use("/api/members", memberRoutes);
 app.listen(8800, () => {
     console.log("API working!");
 });
+
+export default app; 
+
