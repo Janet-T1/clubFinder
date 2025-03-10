@@ -20,10 +20,22 @@ import memberRoutes from "./routes/members.js";
 // CORS configuration
 app.use(
   cors({
-    origin: "https://club-finder-five.vercel.app",
-    credentials: true,
+    origin: "https://club-finder-five.vercel.app", // Your frontend URL
+    credentials: true, // Required for cookies
   })
 );
+
+// Middleware for setting headers manually
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://club-finder-five.vercel.app");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  next();
+});
 
 // Middleware
 app.use(express.json());
@@ -69,10 +81,13 @@ app.use("/api/clubposts", clubPosts);
 app.use("/api/images", imageRoutes);
 app.use("/api/members", memberRoutes);
 
+// Handle preflight requests (OPTIONS method)
+app.options("*", cors());
+
 // Server setup
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
-  console.log("API working!");
+  console.log(`API working on port ${port}!`);
 });
 
 export default app;
