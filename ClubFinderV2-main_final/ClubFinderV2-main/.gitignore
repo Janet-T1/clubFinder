@@ -1,5 +1,6 @@
 /api/.env
 /api/node_modules
+/api/.env
 /client/node_modules
 /tools
 
