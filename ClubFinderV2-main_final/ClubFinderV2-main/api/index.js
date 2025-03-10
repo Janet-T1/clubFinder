@@ -1,5 +1,7 @@
+
 import express, { json } from "express";
 const app = express();
+
 
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
@@ -19,6 +21,9 @@ import multer from "multer";
 
 
 app.use(express.json());
+
+const port = process.env.PORT || 8000;
+
 app.use(cookieParser());
 app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Credentials", true);
@@ -57,7 +62,7 @@ app.use("/api/clubposts",clubPosts);
 app.use("/api/images", imageRoutes);
 app.use("/api/members", memberRoutes);
 
-app.listen(8800, () => {
+app.listen(port, () => {
     console.log("API working!");
 });
 
