@@ -33,7 +33,7 @@ const CreatePost = () => {
 
     useEffect(() => {
         if (currentUser) {
-            axios.get("http://localhost:8800/api/clubs?currentUser.id=", { withCredentials: true })
+            axios.get(`${process.env.REACT_APP_API_URL}/api/clubs?currentUser.id=`, { withCredentials: true })
                 .then(response => setClubs(response.data))
                 .catch(error => setError("Failed to fetch clubs"));
         }

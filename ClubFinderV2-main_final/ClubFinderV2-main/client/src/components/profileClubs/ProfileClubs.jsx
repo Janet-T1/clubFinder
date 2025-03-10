@@ -8,7 +8,7 @@ const ProfileClubs = ({ userIdC }) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:8800/api/clubs/user/${userIdC}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/api/clubs/user/${userIdC}`)
             .then(response => {
                 setClubs(response.data);
             })

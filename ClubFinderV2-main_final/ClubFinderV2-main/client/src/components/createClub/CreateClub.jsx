@@ -33,7 +33,7 @@ const CreateClub = () => {
   }
 
   useEffect(() => {
-        axios.get("http://localhost:8800/api/categories")
+        axios.get(`${process.env.REACT_APP_API_URL}/api/categories`)
             .then(response => setCategories(response.data))
             .catch(error => setError("Failed to fetch categories"));
     }, []);

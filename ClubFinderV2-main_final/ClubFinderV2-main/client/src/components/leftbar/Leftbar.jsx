@@ -20,7 +20,7 @@ const Leftbar = () => {
     const {currentUser } = useContext(AuthContext);
 
     useEffect(() => {
-        axios.get(`http://localhost:8800/api/users/find/${currentUser.username}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/api/users/find/${currentUser.username}`)
             .then(response => setUserInfo(response.data[0]))
             .catch(error => setError("Failed to fetch user info"));
     }, []);
