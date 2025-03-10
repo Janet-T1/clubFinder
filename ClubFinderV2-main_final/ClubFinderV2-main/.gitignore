@@ -2,7 +2,6 @@
 /api/node_modules
 /client/node_modules
 /tools
-/api/db.js
 
 /client/npm-debug.log*
 /client/yarn-debug.log*
